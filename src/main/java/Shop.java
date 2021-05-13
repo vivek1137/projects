@@ -6,6 +6,8 @@ public class Shop {
 
 
     Items items;
+    Apple apple;
+    Milk milk;
 
     Shop() {
         items = new Items();

@@ -29,13 +29,15 @@ public class Milk {
         return this.types.equals(type.CURD);
     }
 
-    public int getAmountofMilkExtra(Milk milk) {
-        if(milk.types.equals(Milk.type.TONED)) {
-            return milk.amount;
-        }
+    public int getAmountofMilk() {
+        return this.amount;
     }
 
     public Milk.type getTypes() {
         return this.types;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

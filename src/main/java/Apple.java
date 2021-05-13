@@ -26,6 +26,14 @@ public class Apple {
         return this.categories;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     public void setAmount(int amount) {
         this.amount = amount;
     }

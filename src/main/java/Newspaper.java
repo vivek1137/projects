@@ -25,6 +25,10 @@ public class Newspaper {
         return this.ca.equals(ca.DAINIK_BHASKAR);
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
     public Newspaper.category getCa() {
         return ca;
     }
