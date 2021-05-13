@@ -36,6 +36,21 @@ public class ShoppingTest {
     }
 
     @Test
+    public void CantCheckout()
+    {
+        cart = new Cart();
+        Apple apple = new Apple(Apple.category.Red,100,40);
+        Milk milk = new Milk(100,40,Milk.type.CURD);
+        Customer customer = new Customer(1000,"Vivek");
+        cart.add(apple);
+        cart.add(milk);
+
+        double balance = customer.cash_available();
+        double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
+        Assert.assertEquals(false,balance > total_amount_to_pay);
+    }
+
+    @Test
     public void remove_items_from_cart()
     {
         Apple apple = new Apple(Apple.category.Red,100,40);
