@@ -8,6 +8,38 @@ public class ShoppingTest {
 
 
     @Test
+    public void checkbalance()
+    {
+        Customer customer = new Customer(10000,"Vivek");
+        Assert.assertEquals(customer.cash_available(),10000);
+    }
+
+    @Test
+    public void addBalance() {
+        Customer customer = new Customer(10000,"Vivek");
+        customer.addMoney(5000);
+        Assert.assertEquals(customer.cash_available(),15000);
+    }
+
+    @Test
+    public void remove_balance() {
+        cart = new Cart();
+        Apple apple = new Apple(Apple.category.Red,100,40);
+        Milk milk = new Milk(100,40,Milk.type.CURD);
+        Customer customer = new Customer(10000,"Vivek");
+        cart.add(apple);
+        cart.add(milk);
+
+        double balance = customer.cash_available();
+        double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
+
+        double balance_now = balance - total_amount_to_pay;
+        Assert.assertEquals(balance_now,2000.0);
+
+        customer.removeMoney(total_amount_to_pay);
+        Assert.assertEquals(customer.cash_available(),10000);
+    }
+    @Test
     public void TotalItemsInCart()
     {
         cart = new Cart();
@@ -32,6 +64,8 @@ public class ShoppingTest {
 
         double balance = customer.cash_available();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
+
+        double balance_now = balance - total_amount_to_pay;
         Assert.assertEquals(true,balance > total_amount_to_pay);
     }
 
@@ -77,6 +111,7 @@ public class ShoppingTest {
         int total_count = milk.getAmount() + apple.getAmount();
         Assert.assertEquals(total_count,196);
     }
+
 }
 
 
