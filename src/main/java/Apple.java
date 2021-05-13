@@ -29,14 +29,6 @@ public class Apple implements Product{
         return this.categories;
     }
 
-//    public boolean canAppleBeBought(Apple.category type,int quantity) {
-//
-//        List<Apple> apple = getApples();
-//        long count = apple.stream().filter((s)-> s.getCategories().equals(type) && s.getAmount() > quantity).count();
-//        return count >0;
-//
-//    }
-
 
     @Override
     public int getPrice() {

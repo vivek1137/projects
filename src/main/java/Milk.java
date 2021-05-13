@@ -33,12 +33,12 @@ public class Milk implements Product{
     }
     @Override
     public int getPrice() {
-        return this.getPrice();
+        return this.price;
     }
 
     @Override
     public int getAmount() {
-        return this.getAmount();
+        return this.amount;
     }
 
     @Override

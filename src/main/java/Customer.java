@@ -6,8 +6,11 @@ public class Customer implements eWallet{
 
 
     private int available_cash;
-    public Customer(int available_cash) {
+    private String name;
+    public List<Cart> cart;
+    public Customer(int available_cash,String name) {
         this.available_cash = available_cash;
+        this.name = name;
     }
 
     @Override
