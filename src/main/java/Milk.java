@@ -1,6 +1,4 @@
-public class Milk {
-
-
+public class Milk implements Product{
 
     enum type {
         TONED,
@@ -29,15 +27,28 @@ public class Milk {
         return this.types.equals(type.CURD);
     }
 
-    public int getAmountofMilk() {
-        return this.amount;
-    }
 
     public Milk.type getTypes() {
         return this.types;
     }
-
+    @Override
     public int getPrice() {
-        return price;
+        return this.getPrice();
     }
+
+    @Override
+    public int getAmount() {
+        return this.getAmount();
+    }
+
+    @Override
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
 }

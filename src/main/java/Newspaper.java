@@ -1,4 +1,6 @@
-public class Newspaper {
+public class Newspaper implements Product{
+
+
 
     enum category {
         HINDU,
@@ -24,9 +26,24 @@ public class Newspaper {
     public boolean isNewsPaperDainikBhaskar() {
         return this.ca.equals(ca.DAINIK_BHASKAR);
     }
+    @Override
+    public int getPrice() {
+        return this.price;
+    }
 
+    @Override
     public int getAmount() {
-        return amount;
+        return this.amount;
+    }
+
+    @Override
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Newspaper.category getCa() {
