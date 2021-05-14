@@ -26,10 +26,6 @@ public class Newspaper implements Product{
         return this.amount;
     }
 
-    @Override
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
     @Override
     public void setAmount(int amount) {

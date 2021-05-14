@@ -18,17 +18,21 @@ public class Cart {
         this.products.remove(product);
     }
 
-    public void update(Product product,int amount,String signal) {
-        if(signal.equals("add")) {
-            product.setAmount(amount + product.getAmount());
-        }
-       if(signal.equals("remove")) {
-           product.setAmount(product.getAmount()-amount);
-       }
-    }
-
     public int total_cartItems() {
         return products.size();
     }
 
+    public double GetTotalPrice()
+    {
+        double total = 0;
+        for(Product product : products) {
+            total = total + product.getAmount()*product.getPrice();
+        }
+        return total;
+    }
+
+    public void EmptyCart()
+    {
+        products.clear();
+    }
 }

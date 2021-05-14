@@ -1,28 +1,45 @@
 import java.util.List;
 
-public class Customer implements Wallet {
+public class Customer  {
 
 
-    private double balance;
     private String name;
-    public List<Cart> cart;
-    public Customer(double available_cash,String name) {
-        this.balance = available_cash;
+    public Cart cart;
+    Wallet wallet;
+    public Customer(String name,Wallet wallet) {
+        this.wallet = wallet;
         this.name = name;
     }
-
-    @Override
-    public void addMoney(double money) {
-        this.balance = money + this.balance;
+    public void AddToCart(Product product)
+    {
+        cart.add(product);
     }
 
-    @Override
-    public double getBalance() {
-        return  this.balance;
+    public void RemoveFromCart(Product product)
+    {
+        cart.remove(product);
     }
-    @Override
-    public void removeMoney(double money) {
-        if(money >= this.balance)
-             this.balance = this.balance - money;
+
+    private double GetTotalPrice()
+    {
+        return cart.GetTotalPrice();
     }
+
+    public double GetWalletBalance()
+    {
+        return wallet.getBalance();
+    }
+
+    public void PayFromEWallet() throws Exception {
+        wallet.DeductAmount(GetTotalPrice());
+        EmptyCart();
+    }
+
+
+
+    private void EmptyCart()
+    {
+        cart.EmptyCart();
+    }
+
 }

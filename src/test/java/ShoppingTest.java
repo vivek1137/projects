@@ -10,40 +10,26 @@ public class ShoppingTest {
     @Test
     public void checkbalance()
     {
-        Customer customer = new Customer(10000,"Vivek");
-        Assert.assertEquals(customer.getBalance(),10000);
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
+        Assert.assertEquals(customer.GetWalletBalance(),10000);
     }
 
     @Test
     public void addBalance() {
-        Customer customer = new Customer(10000,"Vivek");
-        customer.addMoney(5000);
-        Assert.assertEquals(customer.getBalance(),15000);
+
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
+        customer.GetWalletBalance();
+        Assert.assertEquals(customer.GetWalletBalance(),15000);
     }
 
-    @Test
-    public void remove_balance() {
-        cart = new Cart();
-        Apple apple = new Apple(Apple.category.Red,100,40);
-        Milk milk = new Milk(100,40,Milk.type.CURD);
-        Customer customer = new Customer(10000,"Vivek");
-        cart.add(apple);
-        cart.add(milk);
-
-        double balance = customer.getBalance();
-        double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
-
-        double balance_now = balance - total_amount_to_pay;
-        Assert.assertEquals(balance_now,2000.0);
-
-        customer.removeMoney(total_amount_to_pay);
-        Assert.assertEquals(customer.getBalance(),10000);
-    }
     @Test
     public void TotalItemsInCart()
     {
         cart = new Cart();
-        Customer customer = new Customer(10000,"Vivek");
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
         Apple apple = new Apple(Apple.category.Red,100,40);
         Milk milk = new Milk(100,40,Milk.type.CURD);
         cart.add(apple);
@@ -58,11 +44,12 @@ public class ShoppingTest {
         cart = new Cart();
         Apple apple = new Apple(Apple.category.Red,100,40);
         Milk milk = new Milk(100,40,Milk.type.CURD);
-        Customer customer = new Customer(10000,"Vivek");
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
         cart.add(apple);
         cart.add(milk);
 
-        double balance = customer.getBalance();
+        double balance = customer.GetWalletBalance();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
 
         double balance_now = balance - total_amount_to_pay;
@@ -75,11 +62,12 @@ public class ShoppingTest {
         cart = new Cart();
         Apple apple = new Apple(Apple.category.Red,100,40);
         Milk milk = new Milk(100,40,Milk.type.CURD);
-        Customer customer = new Customer(1000,"Vivek");
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
         cart.add(apple);
         cart.add(milk);
 
-        double balance = customer.getBalance();
+        double balance = customer.GetWalletBalance();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
         Assert.assertEquals(false,balance > total_amount_to_pay);
     }
@@ -89,27 +77,13 @@ public class ShoppingTest {
     {
         Apple apple = new Apple(Apple.category.Red,100,40);
         Milk milk = new Milk(100,40,Milk.type.CURD);
-        Customer customer = new Customer(10000,"Vivek");
+        Wallet wallet = new Wallet(100000);
+        Customer customer = new Customer("Vivek",wallet);
         cart.add(apple);
         cart.add(milk);
         cart.remove(milk);
 
         Assert.assertEquals(cart.total_cartItems(),3);
-    }
-
-    @Test
-    public void change_items_amount_cart()
-    {
-        Cart cart = new Cart();
-        Apple apple = new Apple(Apple.category.Red,100,40);
-        Milk milk = new Milk(100,40,Milk.type.CURD);
-        Customer customer = new Customer(10000,"Vivek");
-        cart.add(apple);
-        cart.add(milk);
-        cart.update(apple,6,"add");
-        cart.update(milk,10,"remove");
-        int total_count = milk.getAmount() + apple.getAmount();
-        Assert.assertEquals(total_count,196);
     }
 
 }
