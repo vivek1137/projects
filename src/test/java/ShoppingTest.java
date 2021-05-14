@@ -11,14 +11,14 @@ public class ShoppingTest {
     public void checkbalance()
     {
         Customer customer = new Customer(10000,"Vivek");
-        Assert.assertEquals(customer.cash_available(),10000);
+        Assert.assertEquals(customer.getBalance(),10000);
     }
 
     @Test
     public void addBalance() {
         Customer customer = new Customer(10000,"Vivek");
         customer.addMoney(5000);
-        Assert.assertEquals(customer.cash_available(),15000);
+        Assert.assertEquals(customer.getBalance(),15000);
     }
 
     @Test
@@ -30,14 +30,14 @@ public class ShoppingTest {
         cart.add(apple);
         cart.add(milk);
 
-        double balance = customer.cash_available();
+        double balance = customer.getBalance();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
 
         double balance_now = balance - total_amount_to_pay;
         Assert.assertEquals(balance_now,2000.0);
 
         customer.removeMoney(total_amount_to_pay);
-        Assert.assertEquals(customer.cash_available(),10000);
+        Assert.assertEquals(customer.getBalance(),10000);
     }
     @Test
     public void TotalItemsInCart()
@@ -62,7 +62,7 @@ public class ShoppingTest {
         cart.add(apple);
         cart.add(milk);
 
-        double balance = customer.cash_available();
+        double balance = customer.getBalance();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
 
         double balance_now = balance - total_amount_to_pay;
@@ -79,7 +79,7 @@ public class ShoppingTest {
         cart.add(apple);
         cart.add(milk);
 
-        double balance = customer.cash_available();
+        double balance = customer.getBalance();
         double total_amount_to_pay = apple.getAmount()*apple.getPrice() + milk.getAmount()*milk.getPrice();
         Assert.assertEquals(false,balance > total_amount_to_pay);
     }
