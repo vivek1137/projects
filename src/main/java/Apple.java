@@ -16,19 +16,9 @@ public class Apple implements Product{
         this.amount = amount;
         this.categories = categories;
     }
-
-    public boolean isAppleShimla() {
-        return this.categories.equals(categories.Shimla);
-    }
-
-    public boolean isAppleRed() {
-        return this.categories.equals(categories.Red);
-    }
-
     public Apple.category getCategories() {
         return this.categories;
     }
-
 
     @Override
     public int getPrice() {

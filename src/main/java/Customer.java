@@ -1,34 +1,28 @@
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class Customer implements eWallet{
+public class Customer implements Wallet {
 
 
-    private int available_cash;
+    private double balance;
     private String name;
     public List<Cart> cart;
-    public Customer(int available_cash,String name) {
-        this.available_cash = available_cash;
+    public Customer(double available_cash,String name) {
+        this.balance = available_cash;
         this.name = name;
     }
 
     @Override
-    public void addMoney(int money) {
-        this.available_cash = money + this.available_cash;
+    public void addMoney(double money) {
+        this.balance = money + this.balance;
     }
 
     @Override
-    public int cash_available() {
-        return  this.available_cash;
+    public double getBalance() {
+        return  this.balance;
     }
     @Override
-    public void removeMoney(int money) {
-        if(money >= this.available_cash)
-             this.available_cash = this.available_cash - money;
-        else {
-            System.out.println("Insufficient balance");
-        }
-
+    public void removeMoney(double money) {
+        if(money >= this.balance)
+             this.balance = this.balance - money;
     }
 }

@@ -9,23 +9,13 @@ public class Newspaper implements Product{
     }
     private int amount;
     private int price;
-    Newspaper.category ca;
+    Newspaper.category category;
     Newspaper(Newspaper.category categories, int amount , int price) {
-        this.ca = categories;
+        this.category = categories;
         this.amount = amount;
         this.price = price;
     }
 
-    public boolean isNewsPaperHindu() {
-        return this.ca.equals(ca.HINDU);
-    }
-
-    public boolean isNewsPaperHindustanTimes() {
-        return this.ca.equals(ca.HINDUSTAN_TIMES);
-    }
-    public boolean isNewsPaperDainikBhaskar() {
-        return this.ca.equals(ca.DAINIK_BHASKAR);
-    }
     @Override
     public int getPrice() {
         return this.price;
@@ -47,6 +37,6 @@ public class Newspaper implements Product{
     }
 
     public Newspaper.category getCa() {
-        return ca;
+        return category;
     }
 }

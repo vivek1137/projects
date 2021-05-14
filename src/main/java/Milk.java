@@ -16,18 +16,6 @@ public class Milk implements Product{
         this.types = type;
     }
 
-    public boolean isMilkExtra() {
-        return this.types.equals(type.EXTRA_MALAI);
-    }
-
-    public boolean isMilkToned() {
-        return this.types.equals(type.TONED);
-    }
-    public boolean iscurd() {
-        return this.types.equals(type.CURD);
-    }
-
-
     public Milk.type getTypes() {
         return this.types;
     }
